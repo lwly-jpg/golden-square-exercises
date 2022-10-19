@@ -28,7 +28,7 @@ class Diary
   end
 
   def add_numbers
-    @mobile_numbers = @thought_entries.map {|x| x.thought.scan(/\d{11}/).join(" ")}.reject(&:empty?)
+    @mobile_numbers = @thought_entries.flat_map {|x| x.thought.scan(/07[0-9]{9}/)}
   end
 
   def show_numbers
