@@ -1,5 +1,6 @@
 require 'diary'
 require 'thought_entry'
+require 'todo'
 
 describe 'diary integration tests' do
   context 'thoughts are added' do
