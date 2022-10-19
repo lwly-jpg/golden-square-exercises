@@ -1,0 +1,23 @@
+require 'time_manager'
+
+describe "time_manager method" do
+  it "returns 0 mins when passed empty string" do
+    result = time_manager("")
+    expect(result).to eq "0 mins : 0 secs"
+  end
+
+  it "returns 1 mins when passed 200 word string" do
+    result = time_manager("ullamcorper eget nulla facilisi etiam dignissim diam quis enim lobortis scelerisque fermentum dui faucibus in ornare quam viverra orci sagittis eu volutpat odio facilisis mauris sit amet massa vitae tortor condimentum lacinia quis vel eros donec ac odio tempor orci dapibus ultrices in iaculis nunc sed augue lacus viverra vitae congue eu consequat ac felis donec et odio pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec sagittis aliquam malesuada bibendum arcu vitae elementum curabitur vitae nunc sed velit dignissim sodales ut eu sem integer vitae justo eget magna fermentum iaculis eu non diam phasellus vestibulum lorem sed risus ultricies tristique nulla aliquet enim tortor at auctor urna nunc id cursus metus aliquam eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci a scelerisque purus semper eget duis at tellus at urna condimentum mattis pellentesque id nibh tortor id aliquet lectus proin nibh nisl condimentum id venenatis a condimentum vitae sapien pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas sed tempus urna et pharetra pharetra massa massa ultricies mi quis hendrerit dolor magna eget est lorem ipsum dolor sit amet consectetur adipiscing elit pellentesque habitant morbi")
+    expect(result).to eq "1 mins : 6 secs"
+  end
+
+  it "returns 2 mins when passed 202 word string" do
+    result = time_manager("ullamcorper ullamcorper ullamcorper eget nulla facilisi etiam dignissim diam quis enim lobortis scelerisque fermentum dui faucibus in ornare quam viverra orci sagittis eu volutpat odio facilisis mauris sit amet massa vitae tortor condimentum lacinia quis vel eros donec ac odio tempor orci dapibus ultrices in iaculis nunc sed augue lacus viverra vitae congue eu consequat ac felis donec et odio pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec sagittis aliquam malesuada bibendum arcu vitae elementum curabitur vitae nunc sed velit dignissim sodales ut eu sem integer vitae justo eget magna fermentum iaculis eu non diam phasellus vestibulum lorem sed risus ultricies tristique nulla aliquet enim tortor at auctor urna nunc id cursus metus aliquam eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci a scelerisque purus semper eget duis at tellus at urna condimentum mattis pellentesque id nibh tortor id aliquet lectus proin nibh nisl condimentum id venenatis a condimentum vitae sapien pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas sed tempus urna et pharetra pharetra massa massa ultricies mi quis hendrerit dolor magna eget est lorem ipsum dolor sit amet consectetur adipiscing elit pellentesque habitant morbi")
+    expect(result).to eq "1 mins : 7 secs"
+  end
+
+  it "returns 1 mins when passed 200 word string with punctuation" do
+    result = time_manager("ullamcorper! eget nulla, facilisi. etiam - dignissim - diam quis enim £lobortis - scelerisque fermentum - dui faucibus in - ornare quam viverra -- orci sagittis = eu + volutpat + odio - facilisis mauris sit amet massa vitae tortor condimentum lacinia quis vel eros - donec ac odio tempor orci dapibus ultrices in iaculis nunc sed - augue lacus viverra vitae congue eu consequat ac felis donec et odio pellentesque - diam volutpat commodo sed egestas / egestas fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec sagittis aliquam malesuada bibendum arcu vitae elementum curabitur vitae / nunc sed velit dignissim sodales ut eu sem integer vitae justo eget magna fermentum / iaculis eu non diam phasellus vestibulum lorem sed risus ultricies tristique nulla aliquet enim / tortor at auctor urna nunc id cursus metus aliquam eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci a scelerisque purus semper eget duis at tellus at urna condimentum / mattis pellentesque id nibh tortor id aliquet lectus proin nibh nisl condimentum id venenatis a condimentum vitae sapien pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas sed tempus, urna | et pharetra pharetra massa massa / ultricies mi quis hendrerit dolor / magna eget / est lorem ipsum dolor sit amet / consectetur adipiscing elit / pellentesque/ habitant morbi")
+    expect(result).to eq "1 mins : 6 secs"
+  end
+end
